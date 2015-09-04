@@ -20,7 +20,7 @@ GEM
     i18n (0.7.0)
     json (1.8.3)
     minitest (5.8.0)
-    pg (0.18.2)
+    pg (0.18.3)
     puma (2.13.4)
     rack (1.6.4)
     rack-protection (1.5.3)
