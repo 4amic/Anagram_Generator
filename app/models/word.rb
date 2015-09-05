@@ -1,40 +1,79 @@
 class Word < ActiveRecord::Base
- 
-  def self.find_anagrams(string)
-    # Convert word to an array of letters
-    letters = string.split(//)
- 
-    # Create an array to store our anagrams
-    anagrams = []
- 
-    # Loop through each letter in letters
-    letters.each do |letter|
-      # Select the remaining letters
-      remaining = letters.select { |l| l != letter }
- 
-      # Create a new word by combining the letter + the remaining letters
-      # Add new word to anagrams array
-      anagrams << letter + remaining.join('')
- 
-      # Create a new word by combining the letter + the reverse of the remaining letters
-      # Add new word to anagrams array
-      anagrams << letter + reverse_letters(remaining).join('')
+
+	before_save :add_letters, :downcase
+
+	validates_presence_of :text
+	
+	def add_letters
+			characters = self.text.chars
+			alphabetized_characters = characters.sort
+			self.letters = alphabetized_characters.join
+	end
+
+	def downcase
+		self.text.downcase!
+	end
+
+	def self.find_anagrams(word)
+		anagrams = []
+		final_list = []
+
+		letters = word.split('')
+
+
+		for letter in letters do
+			second_two = reverse_letters(letters.last(2))
+			letters = [letters[0], second_two].flatten!
+			anagrams << letters.join unless letters.join == word
+			
+			letters[0], letters[1] = letters[1], letters[0]
+			anagrams << letters.join unless letters.join == word
+		end
+
+		anagrams.each do |potential_word|
+			if Word.find_by_text(potential_word).present?
+				final_list << potential_word
+			end
+		end	
+
+        
+		final_list.uniq
+	end
+
+	def self.reverse_letters(word)
+		reversed = Array.new(word.length)
+
+		word.each_with_index {|letter, index|
+			reversed[word.length - index - 1] = letter
+		}
+
+		reversed
+	end
+    
+    def three_letters?(input)
+        if input <= 3
+            true
+        else
+            false
+        end
     end
+    
+    def distinct_letters?(input)
+   letter_array = input.chars
+   unique_letters = letter_array.uniq
+   if unique_letters.length < letter_array.length
+     false
+   else
+     true
+   end
+end
  
-    # Return anagrams array
-    anagrams
-  end
- 
-  def self.reverse_letters(letters)
-    # create a new array of 2 items
-    length = letters.length
-    reversed_letters = Array.new(length)
- 
-    # loop through letters and keep index
-    letters.each_with_index do |letter, index|
-      reversed_letters[length - index - 1] = letter
+    def valid_input?(input)
+    if three_letters?(input) && distinct_letters?(input)
+      true
+    else
+      false
     end
- 
-    reversed_letters
-  end
+end
+
 end
