@@ -1,13 +1,16 @@
-<div class="words_show">
-    <div class="word-text"><h2><%= "#{@word.text.upcase}" %></h2>       </div>
-    
-    <div id="arrows"><img src="/images/arrow.png"></div>
-    <div class="word-letters"><h2><%= "#{@word.letters.upcase}" %>      </h2></div>
+<div class="row">
+  <h1 class="h1-show">Anagrams for the word</h1>
+  <h2><%= "#{@word.upcase}" %></h2>
 </div>
-
-<form method="get" action="<%= "/words/#{@word.id}/edit" %>">
-<input class="edit-button" type="submit" value="EDIT WORD" />
-</form>
-<form action="<%= "/words/#{@word.id}" %>" method="post">
-<input type="hidden" name="_method" value="delete" />
-<input class="edit-button" type="submit" value="DELETE WORD" />
+<div class="row">
+  <img src="/images/arrow.png">
+</div>
+<div class="row">
+  <ul class="ul-show-match">
+    <% if !@anagrams.nil? %>
+      <% @anagrams.each do |word| %>
+        <li><%= word.text.upcase %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
