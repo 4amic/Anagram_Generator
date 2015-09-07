@@ -20,6 +20,12 @@
       Edit
     </a>
   </td>
+            <td>
+	          <form action="<%= "/words/#{word.id}" %>" method="post">
+	            <input type="hidden" name="_method" value="delete" />
+	           <i class="fa fa-trash-o"></i> <button class="btn btn-danger" type="submit">Delete</button>
+	          </form>
+	        </td>
         </tr>
         <% end %>
     </tbody>
