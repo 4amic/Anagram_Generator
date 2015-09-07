@@ -15,6 +15,11 @@
             <td>
                 <%= word.letters %>
             </td>
+            <td>
+    <a href="<%= "/words/#{word.id}/edit" %>">
+      Edit
+    </a>
+  </td>
         </tr>
         <% end %>
     </tbody>

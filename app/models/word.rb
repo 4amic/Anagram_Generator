@@ -1,6 +1,6 @@
 class Word < ActiveRecord::Base
 
-    before_create :add_letters, :downcase
+    before_save :add_letters, :downcase
 
 	validates_presence_of :text
 	
