@@ -44,13 +44,9 @@ class Word < ActiveRecord::Base
 		reversed = Array.new(word.length)
 
 		word.each_with_index {|letter, index|
-			reversed[word.length - index - 1] = letter
-		}
+			reversed[word.length - index - 1] = letter}
 
 		reversed
 	end
     
-
-
-
 end
