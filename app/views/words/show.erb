@@ -1,16 +1,9 @@
-<div class="row">
-  <h1 class="h1-show">Anagrams for the word</h1>
-  <h2><%= "#{@word.upcase}" %></h2>
-</div>
-<div class="row">
-  <img src="/images/arrow.png">
-</div>
-<div class="row">
-  <ul class="ul-show-match">
-    <% if !@anagrams.nil? %>
-      <% @anagrams.each do |word| %>
-        <li><%= word.text.upcase %></li>
-      <% end %>
-    <% end %>
-  </ul>
-</div>
+<h1><%= "#{@word.text}" %></h1>
+
+<div id="arrows"><img src="/images/arrow.png"></div><br>
+
+<p>
+	<a href="/">Home</a><br />
+    <a href="/words">Dictionary</a><br />
+	<a href="/words/new">Add a New Word</a>
+</p>

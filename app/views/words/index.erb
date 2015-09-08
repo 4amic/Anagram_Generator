@@ -1,7 +1,7 @@
-<h1>Words</h1>
-<table class="table table-striped">
+<h1>Dictionary</h1>
+<table class="table">
     <thead>
-        <th>Text</th>
+        <th>Words</th>
         <th>Letters</th>
     </thead>
     <tbody>
@@ -30,3 +30,6 @@
         <% end %>
     </tbody>
 </table>
+
+<%= will_paginate @words %>
+

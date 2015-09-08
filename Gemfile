@@ -11,4 +11,6 @@ gem 'sinatra-activerecord'
 gem 'rake'
 gem 'rack'
 gem 'rack-test'
+gem 'will_paginate'
+
 gem 'puma'

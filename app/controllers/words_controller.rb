@@ -1,5 +1,5 @@
 get '/words' do
-  @words = Word.all
+    @words = Word.all.paginate(page: params[:page]).order(:text)
   erb :"/words/index"
 end
 

@@ -3,12 +3,17 @@
     <h1><%= "#{@word.upcase}" %></h1> 
     <div id="arrows"><img src="/images/arrow.png"></div>
 <ul class="anagram-list">
+    <div>
     <% if !@anagrams.nil? %>
     <% @anagrams.each do |anagram| %>
 <li>
     <%= "#{anagram.text}" %>
 </li>
   <% end %>
- <% end %>   
-</ul>
+ <% end %> 
+    </div>
+</ul></div>
+<div>    
+<a href="/words">Dictionary</a><br />
+	<a href="/words/new">Add a New Word</a>
 </div>
