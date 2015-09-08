@@ -1,10 +1,11 @@
 
+/*--------------------basic elements-----------------------*/
 
 body {
 	
 	background-image:url('/images/pattern.png');
     background-repeat: repeat;
-	font-family: 'Indie Flower', cursive;
+	 font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 1.6875;
 	text-align: center;
@@ -13,14 +14,23 @@ body {
 h1 {
 	color: rgb(253,52,93);
 	font-size: 3em;
+    font-family: 'Indie Flower', cursive;
     margin: 10px;
 }
 
 h2 {
 	font-size: 2em;
-
+    font-family: 'Indie Flower', cursive;
 }
 
+ul {
+ padding: 10px;
+    color:#4C4C4C;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+/*--------------------input-----------------------*/
 
 input[type="text"] {
 	width: 60%;
@@ -48,20 +58,7 @@ input[type="submit"] {
 }
 
 
-.label {
-	margin: 0 auto;
-	display: block;
-	color: #4C4C4C;
-    font-family: 'Open Sans', sans-serif;
-	font-size: 2em; 
-}
-
-ul {
- padding: 10px;
-    color:#4C4C4C;
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
-}
+/*--------------------specific divs-----------------------*/
 
 .anagram-list {
    width: 85%;
@@ -76,15 +73,39 @@ ul {
     column-rule: 4px outset #FD345D;
 }
 
-.cartoon {
+#cartoon {
     padding-top: 15px;
     padding-bottom -5px;
     width: 70%;
     margin-left: 15%;
     margin-right: 15%;
-    
 }
 
+.label {
+	margin: 0 auto;
+	display: block;
+	color: #4C4C4C;
+    font-family: 'Open Sans', sans-serif;
+	font-size: 2em; 
+}
+
+#deletebutton {
+    color: white;   
+    border-radius: 15px;
+     background-color: rgb(253,52,93);
+    font-size: 1em;
+    text-align: center;
+}
+#editbutton {
+        color: white;   
+    border-radius: 15px;
+     background-color: rgb(98,204,235);
+    font-size: 1em;
+    text-align: center;
+}
+
+
+/*--------------------table-----------------------*/
 
 .table {
     font-family: 'Open Sans', sans-serif;

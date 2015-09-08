@@ -16,14 +16,12 @@
                 <%= word.letters %>
             </td>
             <td>
-                <a href="<%= "/dictionary/#{word.id}/edit" %>">
-      Edit
-    </a>
+                <input type="button" id="editbutton"  value="Edit" onclick="window.location.href='<%= "/dictionary/#{word.id}/edit" %>'" />
   </td>
             <td>
                 <form action="<%= "/dictionary/#{word.id}" %>" method="post">
 	            <input type="hidden" name="_method" value="delete" />
-	           <i class="fa fa-trash-o"></i> <button class="btn btn-danger" type="submit">Delete</button>
+	        <button id="deletebutton" type="submit"><i class="fa fa-trash-o"></i> DELETE</button>
 	          </form>
 	        </td>
         </tr>
