@@ -15,14 +15,12 @@ end
 
 get '/words/:id/edit' do
   @word = Word.find_by_id(params[:id])
-
   erb :"/words/edit"
 end
 
 delete '/words/:id' do
   word = Word.find_by_id(params[:id])
   word.destroy
-
   redirect "/words"
 end
 

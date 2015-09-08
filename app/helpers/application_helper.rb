@@ -1,4 +1,5 @@
 module ApplicationHelper
+    
   def words_form_action(word)
     if word.new_record?
       @action = "/words"
@@ -17,7 +18,6 @@ module ApplicationHelper
   end
 
   def words_form_class(word)
-    # define the class name here
     @class
   end
 
